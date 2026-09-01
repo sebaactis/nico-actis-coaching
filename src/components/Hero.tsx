@@ -100,7 +100,7 @@ export const Hero: React.FC = () => {
                 <div className="relative h-[440px] sm:h-[500px] overflow-hidden">
                   <img
                     src="/images/Tomas_cuello_main.jpeg"
-                    alt="Tomás Cuello - Fútbol Profesional"
+                    alt="Tomás Cuello - Atlético Mineiro"
                     className="w-full h-full object-cover object-top scale-105 hover:scale-100 transition-transform duration-700 filter contrast-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F14] via-[#0F0F14]/40 to-transparent" />
@@ -119,11 +119,11 @@ export const Hero: React.FC = () => {
                           Tomás Cuello
                         </h4>
                         <p className="text-xs font-semibold text-brand-yellow">
-                          Fútbol Profesional • Alto Rendimiento
+                          Atlético Mineiro • Brasil
                         </p>
                       </div>
                       <span className="text-[10px] uppercase font-bold px-2 py-1 bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow rounded">
-                        Primera División
+                        Fútbol Pro
                       </span>
                     </div>
                     <p className="mt-2 text-xs text-zinc-300 italic line-clamp-2">

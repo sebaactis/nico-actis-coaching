@@ -16,7 +16,7 @@ export const COACH_INFO = {
     { value: "+10", label: "Certificaciones Internacionales", sublabel: "ICF, AACOP, Barça Hub" },
     { value: "100%", label: "Proceso Personalizado", sublabel: "Adaptado a tu calendario competitivo" },
     { value: "1 a 1", label: "Sesiones Online & Presencial", sublabel: "Acompañamiento continuo semana a semana" },
-    { value: "+15", label: "Futbolistas Profesionales", sublabel: "En Primera División y alto rendimiento" },
+    { value: "+13", label: "Futbolistas Profesionales", sublabel: "En clubes de Argentina, Brasil, Portugal, Colombia y Uruguay" },
   ]
 };
 
@@ -228,13 +228,13 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     id: "tomas-cuello",
     name: "Tomás Cuello",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Primera División & Torneos Internacionales",
+    teamOrRole: "Atlético Mineiro • Brasil",
     image: "/images/Tomas_Cuello.jpeg",
     isFeatured: true,
-    highlight: "Alto Rendimiento & Competencia Internacional",
+    highlight: "Brasileirão & Copa Libertadores",
     quote: "El acompañamiento mental y emocional con Nico me dio una claridad enorme para afrontar la exigencia y la presión en la alta competencia. Trabajar la mentalidad y la tranquilidad personal marca una diferencia real en la cancha.",
     stats: [
-      { label: "Nivel", value: "Primera División Internacional" },
+      { label: "Club", value: "Atlético Mineiro (Brasil)" },
       { label: "Enfoque", value: "Gestión de Presión & Autoconfianza" },
       { label: "Impacto", value: "Solidez y Enfoque Competitivo" }
     ]
@@ -243,13 +243,13 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     id: "agustin-ladstatter",
     name: "Agustín Ladstatter",
     sport: "Fútbol Profesional",
-    teamOrRole: "Plantel Profesional • Proyección de Élite",
+    teamOrRole: "San Lorenzo • Argentina",
     image: "/images/Agustin_Ladstatter.jpeg",
     isFeatured: true,
-    highlight: "Confianza & Proyección Competitiva",
+    highlight: "Primera División • Liga Profesional",
     quote: "Aprender a gestionar los momentos difíciles, la ansiedad previa a los partidos y sostener el foco en mi juego cambió mi confianza y mi solidez dentro del campo.",
     stats: [
-      { label: "Disciplina", value: "Fútbol Profesional" },
+      { label: "Club", value: "San Lorenzo (Argentina)" },
       { label: "Enfoque", value: "Manejo de Ansiedad & Seguridad" },
       { label: "Impacto", value: "Crecimiento y Madurez Deportiva" }
     ]
@@ -258,13 +258,13 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     id: "benjamin-sagues-barreiro",
     name: "Benjamín Sagüés Barreiro",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Alta Competencia",
+    teamOrRole: "Estudiantes de La Plata • Argentina",
     image: "/images/Benjamin_Sagues_Barreiro.jpeg",
     isFeatured: true,
-    highlight: "Mentalidad Ganadora & Regularidad",
+    highlight: "Primera División • Alta Competencia",
     quote: "El trabajo integral en la persona detrás del jugador es lo que te permite sostener el nivel semana tras semana y no dejarte condicionar por las presiones externas.",
     stats: [
-      { label: "Nivel", value: "Competencia Profesional" },
+      { label: "Club", value: "Estudiantes LP (Argentina)" },
       { label: "Enfoque", value: "Resiliencia & Constancia" },
       { label: "Impacto", value: "Regularidad en Alto Nivel" }
     ]
@@ -273,13 +273,13 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     id: "eber-ocampo",
     name: "Eber Ocampo",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Plantel Superior",
+    teamOrRole: "San Lorenzo • Argentina",
     image: "/images/Eber_Ocampo.jpeg",
     isFeatured: true,
-    highlight: "Foco, Concentración & Estado de Flow",
+    highlight: "Primera División • Liga Profesional",
     quote: "Con Nico encontré herramientas para superar bloqueos, mejorar la concentración en los momentos duros de los partidos y disfrutar mucho más del camino competitivo.",
     stats: [
-      { label: "Disciplina", value: "Fútbol Profesional" },
+      { label: "Club", value: "San Lorenzo (Argentina)" },
       { label: "Enfoque", value: "Concentración Bajo Presión" },
       { label: "Impacto", value: "Mayor Claridad y Efectividad" }
     ]
@@ -288,13 +288,13 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     id: "felipe-tempone",
     name: "Felipe Tempone",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Desarrollo Integral",
+    teamOrRole: "Independiente • Argentina",
     image: "/images/Felipe_Tempone.jpeg",
     isFeatured: true,
-    highlight: "Planificación de Objetivos & Hábitos",
+    highlight: "Primera División • Proyección",
     quote: "Las sesiones me ayudaron a ordenar mi cabeza, fijar objetivos claros para la temporada y mantener la disciplina y motivación al 100% día a día.",
     stats: [
-      { label: "Nivel", value: "Desarrollo y Rendimiento" },
+      { label: "Club", value: "Independiente (Argentina)" },
       { label: "Enfoque", value: "Hábitos Saludables & Disciplina" },
       { label: "Impacto", value: "Evolución Deportiva Constante" }
     ]
@@ -303,58 +303,103 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     id: "francisco-scarpeccio",
     name: "Francisco Scarpeccio",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Competencia de Alto Nivel",
+    teamOrRole: "Newell's Old Boys • Argentina",
     image: "/images/Francisco_Scarpeccio.jpeg",
     isFeatured: true,
-    highlight: "Canalización de la Presión Competitiva",
+    highlight: "Primera División • Liga Profesional",
     quote: "Entendí cómo transformar la presión y los nervios en energía positiva para rendir mejor en cada partido y tener mayor seguridad con la pelota.",
     stats: [
-      { label: "Disciplina", value: "Fútbol Profesional" },
+      { label: "Club", value: "Newell's Old Boys (Argentina)" },
       { label: "Enfoque", value: "Autorregulación Emocional" },
       { label: "Impacto", value: "Seguridad y Determinación" }
-    ]
-  },
-  {
-    id: "ignacio-cuello",
-    name: "Ignacio Cuello",
-    sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Rendimiento Deportivo",
-    image: "/images/Ignacio_Cuello.jpeg",
-    isFeatured: true,
-    highlight: "Autoconocimiento & Hábitos de Élite",
-    quote: "El coaching me dio una mirada distinta sobre mis propias capacidades y la importancia del descanso, los pensamientos y los hábitos en el rendimiento del fin de semana.",
-    stats: [
-      { label: "Nivel", value: "Competencia Profesional" },
-      { label: "Enfoque", value: "Autoconocimiento & Rutinas" },
-      { label: "Impacto", value: "Óptima Preparación Integral" }
     ]
   },
   {
     id: "juan-villordo",
     name: "Juan Villordo",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Alta Exigencia",
+    teamOrRole: "River Plate • Argentina",
     image: "/images/Juan_Villordo.jpeg",
     isFeatured: true,
-    highlight: "Seguridad Mental & Liderazgo",
+    highlight: "Primera División • Máxima Exigencia",
     quote: "El acompañamiento de Nico fue clave para fortalecer mi seguridad mental en momentos decisivos de la temporada y asumir el protagonismo con confianza.",
     stats: [
-      { label: "Disciplina", value: "Fútbol Profesional" },
+      { label: "Club", value: "River Plate (Argentina)" },
       { label: "Enfoque", value: "Seguridad & Carácter" },
       { label: "Impacto", value: "Liderazgo en el Campo" }
+    ]
+  },
+  {
+    id: "lucas-ibarra",
+    name: "Lucas Ibarra",
+    sport: "Fútbol Profesional",
+    teamOrRole: "Peñarol • Uruguay",
+    image: "/images/Lucas_Ibarra.jpeg",
+    isFeatured: true,
+    highlight: "Primera División • Fútbol Uruguayo",
+    quote: "La claridad en la toma de decisiones y el manejo de los momentos de tensión dentro del campo mejoraron notablemente desde que arrancamos a trabajar.",
+    stats: [
+      { label: "Club", value: "Peñarol (Uruguay)" },
+      { label: "Enfoque", value: "Toma de Decisiones Rápida" },
+      { label: "Impacto", value: "Claridad en Momentos Clave" }
+    ]
+  },
+  {
+    id: "tyago-ayala",
+    name: "Tyago Ayala",
+    sport: "Fútbol Profesional",
+    teamOrRole: "Sarmiento • Argentina",
+    image: "/images/Tyago_Ayala.jpeg",
+    isFeatured: true,
+    highlight: "Primera División • Liga Profesional",
+    quote: "Descubrí cómo potenciar mi juego desde el autoconocimiento, la gestión de mis emociones y la confianza en todo lo que vengo trabajando.",
+    stats: [
+      { label: "Club", value: "Sarmiento (Argentina)" },
+      { label: "Enfoque", value: "Autoconfianza & Crecimiento" },
+      { label: "Impacto", value: "Desarrollo Deportivo Integral" }
+    ]
+  },
+  {
+    id: "ignacio-cuello",
+    name: "Ignacio Cuello",
+    sport: "Fútbol Profesional",
+    teamOrRole: "Central Norte • Argentina",
+    image: "/images/Ignacio_Cuello.jpeg",
+    isFeatured: true,
+    highlight: "Competencia Profesional • Alto Rendimiento",
+    quote: "El coaching me dio una mirada distinta sobre mis propias capacidades y la importancia del descanso, los pensamientos y los hábitos en el rendimiento del fin de semana.",
+    stats: [
+      { label: "Club", value: "Central Norte (Argentina)" },
+      { label: "Enfoque", value: "Autoconocimiento & Rutinas" },
+      { label: "Impacto", value: "Óptima Preparación Integral" }
+    ]
+  },
+  {
+    id: "rodrigo-dudok",
+    name: "Rodrigo Dudok",
+    sport: "Fútbol Profesional",
+    teamOrRole: "Estrela da Amadora • Portugal",
+    image: "/images/Rodrigo_Dudok.jpeg",
+    isFeatured: true,
+    highlight: "Primeira Liga • Portugal",
+    quote: "El respaldo y las herramientas que me brindó Nico marcaron un antes y un después en mi enfoque como deportista profesional en el fútbol europeo.",
+    stats: [
+      { label: "Club", value: "Estrela Amadora (Portugal)" },
+      { label: "Enfoque", value: "Mentalidad Profesional" },
+      { label: "Impacto", value: "Salto de Calidad Europeo" }
     ]
   },
   {
     id: "kevin-londono",
     name: "Kevin Londoño",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional Internacional",
+    teamOrRole: "Cúcuta Deportivo • Colombia",
     image: "/images/Kevin_Londono.jpeg",
     isFeatured: true,
-    highlight: "Solidez & Enfoque Internacional",
-    quote: "Trabajar la mente y las emociones con Nico me permitió competir con mayor solidez y tranquilidad en cada desafío del fútbol internacional.",
+    highlight: "Fútbol Profesional • Colombia",
+    quote: "Trabajar la mente y las emociones con Nico me permitió competir con mayor solidez y tranquilidad en cada desafío del fútbol profesional.",
     stats: [
-      { label: "Nivel", value: "Primera División Internacional" },
+      { label: "Club", value: "Cúcuta Deportivo (Colombia)" },
       { label: "Enfoque", value: "Adaptabilidad & Rendimiento" },
       { label: "Impacto", value: "Consistencia en Alta Exigencia" }
     ]
@@ -363,60 +408,15 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     id: "lautaro-bursich",
     name: "Lautaro Bursich",
     sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Plantel Superior",
+    teamOrRole: "Talleres de Remedios de Escalada • Argentina",
     image: "/images/Lautaro_Bursich.jpeg",
     isFeatured: true,
-    highlight: "Resiliencia & Fortaleza Mental",
+    highlight: "Fútbol Profesional • Plantel Superior",
     quote: "Un espacio fundamental para reflexionar, aprender a convivir con el error sin frustrarse y potenciar las fortalezas individuales en cada entrenamiento y partido.",
     stats: [
-      { label: "Disciplina", value: "Fútbol Profesional" },
+      { label: "Club", value: "Talleres RE (Argentina)" },
       { label: "Enfoque", value: "Tolerancia a la Frustración" },
       { label: "Impacto", value: "Mayor Fortaleza Mental" }
-    ]
-  },
-  {
-    id: "lucas-ibarra",
-    name: "Lucas Ibarra",
-    sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Rendimiento Deportivo",
-    image: "/images/Lucas_Ibarra.jpeg",
-    isFeatured: true,
-    highlight: "Toma de Decisiones & Claridad",
-    quote: "La claridad en la toma de decisiones y el manejo de los momentos de tensión dentro del campo mejoraron notablemente desde que arrancamos a trabajar.",
-    stats: [
-      { label: "Nivel", value: "Competencia Profesional" },
-      { label: "Enfoque", value: "Toma de Decisiones Rápida" },
-      { label: "Impacto", value: "Claridad en Momentos Clave" }
-    ]
-  },
-  {
-    id: "rodrigo-dudok",
-    name: "Rodrigo Dudok",
-    sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Competencia de Élite",
-    image: "/images/Rodrigo_Dudok.jpeg",
-    isFeatured: true,
-    highlight: "Enfoque Profesional & Rendimiento",
-    quote: "El respaldo y las herramientas que me brindó Nico marcaron un antes y un después en mi enfoque como deportista profesional.",
-    stats: [
-      { label: "Disciplina", value: "Fútbol Profesional" },
-      { label: "Enfoque", value: "Mentalidad Profesional" },
-      { label: "Impacto", value: "Salto de Calidad Competitivo" }
-    ]
-  },
-  {
-    id: "tyago-ayala",
-    name: "Tyago Ayala",
-    sport: "Fútbol Profesional",
-    teamOrRole: "Fútbol Profesional • Proyección y Rendimiento",
-    image: "/images/Tyago_Ayala.jpeg",
-    isFeatured: true,
-    highlight: "Evolución & Autoconfianza",
-    quote: "Descubrí cómo potenciar mi juego desde el autoconocimiento, la gestión de mis emociones y la confianza en todo lo que vengo trabajando.",
-    stats: [
-      { label: "Nivel", value: "Proyección & Primera" },
-      { label: "Enfoque", value: "Autoconfianza & Crecimiento" },
-      { label: "Impacto", value: "Desarrollo Deportivo Integral" }
     ]
   }
 ];

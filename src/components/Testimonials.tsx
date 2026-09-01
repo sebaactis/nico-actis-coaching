@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Trophy, Quote, ChevronLeft, ChevronRight, CheckCircle2, Star, Pause, Play, Users } from 'lucide-react';
-import { TESTIMONIALS_DATA } from '../data/coachingData';
+import { Trophy, Quote, ChevronLeft, ChevronRight, CheckCircle2, Star, Pause, Play, Users, MessageCircle } from 'lucide-react';
+import { TESTIMONIALS_DATA, COACH_INFO } from '../data/coachingData';
 
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,12 +32,14 @@ export const Testimonials: React.FC = () => {
     return () => clearInterval(interval);
   }, [currentIndex, isAutoPlaying]);
 
-  // Scroll active thumbnail into view
+  // Scroll ONLY the horizontal container WITHOUT moving the window viewport
   useEffect(() => {
     if (thumbnailsRef.current) {
-      const activeBtn = thumbnailsRef.current.children[currentIndex] as HTMLElement;
+      const container = thumbnailsRef.current;
+      const activeBtn = container.children[currentIndex] as HTMLElement;
       if (activeBtn) {
-        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        const targetScrollLeft = activeBtn.offsetLeft - (container.clientWidth / 2) + (activeBtn.clientWidth / 2);
+        container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
       }
     }
   }, [currentIndex]);
@@ -78,10 +80,10 @@ export const Testimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161D] border border-brand-yellow/30 text-brand-yellow text-xs font-black uppercase tracking-widest mb-4">
             <Trophy className="w-4 h-4 text-brand-yellow" />
-            <span>Casos de Éxito & Testimonios ({total} Jugadores)</span>
+            <span>Algunos de los deportistas que acompañamos</span>
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-white">
@@ -89,12 +91,12 @@ export const Testimonials: React.FC = () => {
           </h2>
           
           <p className="mt-4 text-base sm:text-lg text-zinc-300">
-            Acompañamiento mental y emocional a futbolistas y atletas de alto rendimiento en Primera División y ligas profesionales.
+            Una selección de los atletas que entrenan su mente y potencian su rendimiento día a día.
           </p>
         </div>
 
         {/* Quick Player Selector Pills (Horizontal Scroll) */}
-        <div className="mb-8">
+        <div className="mb-6">
           <div
             ref={thumbnailsRef}
             className="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-zinc-800 no-scrollbar"
@@ -119,7 +121,7 @@ export const Testimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* CAROUSEL MAIN CONTAINER */}
+        {/* CAROUSEL MAIN CONTAINER WITH FIXED RIGID PROPORTIONS */}
         <div
           className="relative"
           onMouseEnter={() => setIsAutoPlaying(false)}
@@ -129,17 +131,18 @@ export const Testimonials: React.FC = () => {
           onTouchEnd={handleTouchEnd}
         >
           {/* Card Frame with Golden Glow Border */}
-          <div className="rounded-3xl p-1 bg-gradient-to-r from-brand-yellow/50 via-zinc-800 to-brand-yellow/30 shadow-2xl transition-all duration-500">
+          <div className="rounded-3xl p-1 bg-gradient-to-r from-brand-yellow/50 via-zinc-800 to-brand-yellow/30 shadow-2xl transition-all duration-300">
             <div className="rounded-[22px] bg-[#0E0E13] border border-zinc-800 overflow-hidden">
-              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[540px]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[560px] lg:h-[580px]">
                 
-                {/* Photo Column (Large Hero Photo) */}
-                <div className="lg:col-span-5 relative h-[380px] sm:h-[480px] lg:h-full overflow-hidden bg-black flex items-center justify-center">
+                {/* Photo Column - RIGID FIXED HEIGHT & PERFECT OBJECT-COVER (ZERO JUMP) */}
+                <div className="lg:col-span-5 relative h-[380px] sm:h-[440px] lg:h-full w-full overflow-hidden bg-[#0A0A0E] flex items-center justify-center">
                   <img
                     key={currentTestimonial.id}
                     src={currentTestimonial.image}
                     alt={currentTestimonial.name}
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-all duration-700 filter contrast-105 animate-fadeIn"
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-all duration-700 filter contrast-105 select-none"
+                    loading="eager"
                   />
                   
                   {/* Subtle Gradient Overlays */}
@@ -159,11 +162,11 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Content Column */}
-                <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-6">
+                <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between space-y-4 lg:h-full overflow-hidden">
                   
                   {/* Top Bar inside Card */}
                   <div>
-                    <div className="flex items-center justify-between gap-4 mb-4">
+                    <div className="flex items-center justify-between gap-4 mb-3">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="px-3 py-1 rounded bg-brand-yellow text-black text-xs font-black uppercase tracking-wider">
                           {currentTestimonial.sport}
@@ -181,31 +184,31 @@ export const Testimonials: React.FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-3xl sm:text-4xl font-display font-black uppercase text-white tracking-wide">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-black uppercase text-white tracking-wide">
                       {currentTestimonial.name}
                     </h3>
-                    <p className="text-sm sm:text-base font-bold text-brand-yellow mt-1">
+                    <p className="text-sm sm:text-base font-extrabold text-brand-yellow mt-1">
                       {currentTestimonial.teamOrRole}
                     </p>
                   </div>
 
-                  {/* Quote Body */}
-                  <div className="relative pl-6 sm:pl-8 border-l-4 border-brand-yellow py-2 my-2">
+                  {/* Quote Body with Min Height to Prevent Vertical Shifts */}
+                  <div className="relative pl-6 sm:pl-8 border-l-4 border-brand-yellow py-2 my-auto min-h-[100px] flex items-center">
                     <Quote className="w-8 h-8 text-brand-yellow/20 absolute -top-4 -left-2 pointer-events-none" />
-                    <p className="text-base sm:text-xl text-zinc-200 font-medium italic leading-relaxed">
+                    <p className="text-base sm:text-lg lg:text-xl text-zinc-200 font-medium italic leading-relaxed">
                       “{currentTestimonial.quote}”
                     </p>
                   </div>
 
                   {/* Stats & Key Outcomes */}
                   {currentTestimonial.stats && (
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-zinc-800/80">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 border-t border-zinc-800/80">
                       {currentTestimonial.stats.map((s, i) => (
-                        <div key={i} className="p-3 rounded-xl bg-[#14141B] border border-zinc-800/80">
-                          <span className="block text-[11px] font-semibold text-zinc-400 uppercase">
+                        <div key={i} className="p-2.5 rounded-xl bg-[#14141B] border border-zinc-800/80">
+                          <span className="block text-[10px] font-semibold text-zinc-400 uppercase">
                             {s.label}
                           </span>
-                          <span className="text-xs sm:text-sm font-black text-white">
+                          <span className="text-xs sm:text-sm font-black text-white truncate block">
                             {s.value}
                           </span>
                         </div>
@@ -214,14 +217,14 @@ export const Testimonials: React.FC = () => {
                   )}
 
                   {/* Bottom Strip: Navigation Arrows & Trust Badge */}
-                  <div className="pt-4 flex items-center justify-between border-t border-zinc-800/60">
-                    <span className="inline-flex items-center gap-2 text-xs font-bold text-zinc-300">
+                  <div className="pt-3 flex items-center justify-between border-t border-zinc-800/60">
+                    <span className="inline-flex items-center gap-2 text-xs font-bold text-zinc-300 truncate mr-2">
                       <CheckCircle2 className="w-4 h-4 text-brand-yellow flex-shrink-0" />
                       Acompañamiento Integral en Alta Competencia
                     </span>
 
                     {/* Navigation Buttons inside card */}
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-shrink-0">
                       <button
                         onClick={prevSlide}
                         className="w-11 h-11 rounded-xl bg-[#181822] border border-zinc-700 text-zinc-300 hover:text-black hover:bg-brand-yellow hover:border-brand-yellow transition-all flex items-center justify-center shadow-md active:scale-95"
@@ -246,7 +249,7 @@ export const Testimonials: React.FC = () => {
           </div>
 
           {/* Bottom Indicators & Autoplay Control */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             
             {/* Pagination Dots */}
             <div className="flex items-center gap-1.5 flex-wrap">
@@ -288,6 +291,32 @@ export const Testimonials: React.FC = () => {
 
           </div>
 
+        </div>
+
+        {/* Bottom Banner: Simple Clarification & Invitation */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#121218] via-[#161622] to-[#121218] border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow text-xs font-black uppercase mb-2">
+              <Users className="w-3.5 h-3.5" />
+              <span>Acompañamiento Integral</span>
+            </div>
+            <h4 className="text-lg sm:text-xl font-display font-black uppercase text-white">
+              ¿Querés conocer más sobre el acompañamiento?
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-2xl">
+              Estos son solo algunos de los deportistas que forman parte del proceso en diferentes ligas y disciplinas.
+            </p>
+          </div>
+
+          <a
+            href={`https://wa.me/${COACH_INFO.whatsappNumber}?text=${encodeURIComponent('Hola Nico, vi los testimonios en la web y me gustaría consultar por mi disciplina y objetivos.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-yellow text-black font-extrabold text-xs uppercase tracking-wider hover:bg-brand-yellowHover shadow-neon-sm transition-all flex-shrink-0"
+          >
+            <MessageCircle className="w-4 h-4 fill-black" />
+            <span>Consultar por mi Deporte</span>
+          </a>
         </div>
 
       </div>
