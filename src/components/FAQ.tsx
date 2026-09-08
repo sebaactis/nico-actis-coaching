@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
-import { FAQ_DATA, COACH_INFO } from '../data/coachingData';
+import type React from "react";
+import { useState } from "react";
+import {
+  HelpCircle,
+  ChevronDown,
+  ChevronUp,
+  MessageCircle,
+} from "lucide-react";
+import { FAQ_DATA, whatsappLink } from "../data/coachingData";
 
 export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First open by default
@@ -15,7 +21,6 @@ export const FAQ: React.FC = () => {
       <div className="absolute top-1/2 -left-40 w-96 h-96 bg-brand-yellow/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161D] border border-brand-yellow/30 text-brand-yellow text-xs font-black uppercase tracking-widest mb-4">
@@ -26,9 +31,10 @@ export const FAQ: React.FC = () => {
           <h2 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-white">
             Preguntas <span className="text-brand-yellow">Frecuentes</span>
           </h2>
-          
+
           <p className="mt-4 text-base sm:text-lg text-zinc-300">
-            Todo lo que necesitás saber sobre cómo funciona el coaching ontológico y deportivo.
+            Todo lo que necesitás saber sobre cómo funciona el coaching
+            ontológico y deportivo.
           </p>
         </div>
 
@@ -42,8 +48,8 @@ export const FAQ: React.FC = () => {
                 key={faq.id}
                 className={`rounded-3xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? 'bg-[#121217] border-brand-yellow/50 shadow-neon-sm'
-                    : 'bg-[#101014] border-zinc-800/80 hover:border-zinc-700'
+                    ? "bg-[#121217] border-brand-yellow/50 shadow-neon-sm"
+                    : "bg-[#101014] border-zinc-800/80 hover:border-zinc-700"
                 }`}
               >
                 <button
@@ -57,8 +63,8 @@ export const FAQ: React.FC = () => {
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
                       isOpen
-                        ? 'bg-brand-yellow text-black rotate-180'
-                        : 'bg-[#181822] text-zinc-400 border border-zinc-700'
+                        ? "bg-brand-yellow text-black rotate-180"
+                        : "bg-[#181822] text-zinc-400 border border-zinc-700"
                     }`}
                   >
                     <ChevronDown className="w-5 h-5" />
@@ -84,12 +90,15 @@ export const FAQ: React.FC = () => {
               ¿Tenés alguna consulta puntual?
             </h4>
             <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-              Escribime directamente por WhatsApp para coordinar una charla previa sin compromiso.
+              Escribime directamente por WhatsApp para coordinar una charla
+              previa sin compromiso.
             </p>
           </div>
 
           <a
-            href={`https://wa.me/${COACH_INFO.whatsappNumber}?text=${encodeURIComponent('Hola Nico, tengo una duda sobre las sesiones de coaching.')}`}
+            href={whatsappLink(
+              "Hola Nico, tengo una duda sobre las sesiones de coaching.",
+            )}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-yellow text-black font-extrabold text-xs uppercase tracking-wider hover:bg-brand-yellowHover shadow-neon-sm transition-all flex-shrink-0"
@@ -98,7 +107,6 @@ export const FAQ: React.FC = () => {
             <span>Consultar por WhatsApp</span>
           </a>
         </div>
-
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ export interface Certification {
   id: string;
   title: string;
   institution: string;
-  category: 'icf_aacop' | 'neuroscience' | 'barca' | 'cognitive';
+  category: "icf_aacop" | "neuroscience" | "barca" | "cognitive";
   badgeLabel?: string;
   description?: string;
   year?: string;
@@ -14,7 +14,7 @@ export interface Testimonial {
   sport: string;
   teamOrRole: string;
   image: string;
-  quote: string;
+  quote?: string;
   highlight: string;
   isFeatured?: boolean;
   stats?: { label: string; value: string }[];

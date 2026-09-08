@@ -1,59 +1,97 @@
-import { Certification, Testimonial, FAQItem, MethodStep } from '../types';
+import type { Certification, Testimonial, FAQItem, MethodStep } from "../types";
 
 export const COACH_INFO = {
   name: "Nico Actis",
   title: "Coach Ontológico & Deportivo de Alto Rendimiento",
   headline: "POTENCIÁ TU MENTE. ELEVÁ TU RENDIMIENTO.",
-  subheadline: "Acompañamiento integral para deportistas profesionales y de alto rendimiento. Porque antes que deportistas, somos personas.",
-  phone: "+54 9 11 1234-5678",
-  whatsappNumber: "5491112345678",
-  instagram: "nicoactis.coach",
-  instagramUrl: "https://instagram.com/nicoactis.coach",
-  email: "contacto@nicoactis.com",
+  subheadline:
+    "Acompañamiento integral para deportistas profesionales y de alto rendimiento. Porque antes que deportistas, somos personas.",
+  // Contacto fragmentado a proposito: numero y mail se ensamblan solo al
+  // hacer clic, para que no queden legibles en el codigo ni como texto.
+  whatsappParts: ["54911", "3296", "3401"],
+  emailUser: "nicoactis3251",
+  emailDomain: "gmail.com",
+  instagram: "coachnicoactis",
+  instagramUrl: "https://instagram.com/coachnicoactis",
+  // Link del Schedule de citas de Google Calendar (agendamiento de la primera charla)
+  calendarUrl: "https://calendar.app.google/g8FV2Ai2J9rCvksV6",
   location: "Sesiones Online (Global) & Presenciales",
-  motto: "El deportista puede ser quien compite, pero la persona es quien vive todo el proceso.",
+  motto:
+    "El deportista puede ser quien compite, pero la persona es quien vive todo el proceso.",
   stats: [
-    { value: "+10", label: "Certificaciones Internacionales", sublabel: "ICF, AACOP, Barça Hub" },
-    { value: "100%", label: "Proceso Personalizado", sublabel: "Adaptado a tu calendario competitivo" },
-    { value: "1 a 1", label: "Sesiones Online & Presencial", sublabel: "Acompañamiento continuo semana a semana" },
-    { value: "+13", label: "Futbolistas Profesionales", sublabel: "En clubes de Argentina, Brasil, Portugal, Colombia y Uruguay" },
-  ]
+    {
+      value: "+10",
+      label: "Certificaciones Internacionales",
+      sublabel: "ICF, AACOP, Barça Hub",
+    },
+    {
+      value: "100%",
+      label: "Proceso Personalizado",
+      sublabel: "Adaptado a tu calendario competitivo",
+    },
+    {
+      value: "1 a 1",
+      label: "Sesiones Online & Presencial",
+      sublabel: "Acompañamiento continuo semana a semana",
+    },
+    {
+      value: "+50",
+      label: "Futbolistas Profesionales",
+      sublabel: "En clubes de Argentina, Brasil, Portugal, Colombia y Uruguay",
+    },
+  ],
 };
+
+// Ensambla los datos de contacto solo en tiempo de ejecucion (al hacer clic).
+const getWhatsappNumber = (): string => COACH_INFO.whatsappParts.join("");
+const getEmailAddress = (): string =>
+  `${COACH_INFO.emailUser}@${COACH_INFO.emailDomain}`;
+export const whatsappLink = (message = ""): string => {
+  const base = `https://wa.me/${getWhatsappNumber()}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+};
+export const emailLink = (): string => `mailto:${getEmailAddress()}`;
 
 export const ABOUT_DATA = {
   intro: "Soy Nico Actis",
   role: "Coach Ontológico Profesional & Coach Deportivo",
   missionTitle: "Mi Misión",
-  missionSummary: "Mi misión es acompañar a los deportistas en su camino, no solo para potenciar su rendimiento, sino también para ayudarlos a crecer como personas.",
+  missionSummary:
+    "Mi misión es acompañar a los deportistas en su camino, no solo para potenciar su rendimiento, sino también para ayudarlos a crecer como personas.",
   paragraphs: [
     "Porque antes que deportistas, somos personas. Y todo lo que vivimos fuera del campo, la cancha o la pista también influye en nuestra manera de competir, entrenar y afrontar los desafíos.",
     "Por eso, mi acompañamiento busca trabajar de manera integral: fortalecer recursos mentales y emocionales, afrontar dificultades, gestionar las emociones, superar obstáculos y desarrollar herramientas que permitan al deportista desenvolverse con mayor confianza y equilibrio, tanto en el deporte como en su vida personal.",
     "Creo que el verdadero crecimiento no consiste únicamente en conseguir mejores resultados, sino en convertirse en una persona más preparada para afrontar los desafíos que el deporte y la vida presentan.",
-    "Mi compromiso es acompañar a cada deportista respetando su historia, sus tiempos y sus objetivos, entendiendo que detrás de cada rendimiento hay una persona con emociones, sueños, miedos, fortalezas y desafíos."
+    "Mi compromiso es acompañar a cada deportista respetando su historia, sus tiempos y sus objetivos, entendiendo que detrás de cada rendimiento hay una persona con emociones, sueños, miedos, fortalezas y desafíos.",
   ],
-  highlightQuote: "Porque el deportista puede ser quien compite, pero la persona es quien vive todo el proceso.",
+  highlightQuote:
+    "Porque el deportista puede ser quien compite, pero la persona es quien vive todo el proceso.",
   pillars: [
     {
       title: "Gestión Emocional & Mental",
-      description: "Herramientas para canalizar la presión, el miedo al error, la frustración y la ansiedad pre-competitiva.",
-      icon: "Brain"
+      description:
+        "Herramientas para canalizar la presión, el miedo al error, la frustración y la ansiedad pre-competitiva.",
+      icon: "Brain",
     },
     {
       title: "Autoconocimiento y Hábitos",
-      description: "Identificar qué necesitás y construir rutinas saludables que sostengan tu nivel en el tiempo.",
-      icon: "Compass"
+      description:
+        "Identificar qué necesitás y construir rutinas saludables que sostengan tu nivel en el tiempo.",
+      icon: "Compass",
     },
     {
       title: "Confianza & Liderazgo",
-      description: "Valorar tu recorrido, fortalecer tu autoestima y establecer límites sanos en tu entorno deportivo y personal.",
-      icon: "ShieldCheck"
+      description:
+        "Valorar tu recorrido, fortalecer tu autoestima y establecer límites sanos en tu entorno deportivo y personal.",
+      icon: "ShieldCheck",
     },
     {
       title: "Transferencia al Campo",
-      description: "Ejercicios concretos durante la semana para plasmar los avances internos en resultados deportivos reales.",
-      icon: "Trophy"
-    }
-  ]
+      description:
+        "Ejercicios concretos durante la semana para plasmar los avances internos en resultados deportivos reales.",
+      icon: "Trophy",
+    },
+  ],
 };
 
 export const METHODOLOGY_DATA: MethodStep[] = [
@@ -61,50 +99,54 @@ export const METHODOLOGY_DATA: MethodStep[] = [
     number: "01",
     title: "Diagnóstico & Planificación Integral",
     subtitle: "Sesiones Online o Presenciales",
-    description: "Espacios de conversación profunda donde abordamos tanto los desafíos dentro del campo de juego como los aspectos personales que influyen en tu bienestar.",
+    description:
+      "Espacios de conversación profunda donde abordamos tanto los desafíos dentro del campo de juego como los aspectos personales que influyen en tu bienestar.",
     details: [
       "Planificación de objetivos anuales, de temporada y semanales",
       "Identificación de bloqueos, creencias limitantes y patrones de conducta",
-      "Diseño de un plan de trabajo 100% individualizado"
+      "Diseño de un plan de trabajo 100% individualizado",
     ],
-    iconName: "Target"
+    iconName: "Target",
   },
   {
     number: "02",
     title: "Conocete, Comprendete y Construí Hábitos",
     subtitle: "La base de los cambios sostenibles",
-    description: "El autoconocimiento es el punto de partida. Te acompaño a identificar qué necesitás, qué te hace bien y qué querés transformar para incorporar hábitos saludables en sintonía con tus valores.",
+    description:
+      "El autoconocimiento es el punto de partida. Te acompaño a identificar qué necesitás, qué te hace bien y qué querés transformar para incorporar hábitos saludables en sintonía con tus valores.",
     details: [
       "Alineación entre valores personales y metas deportivas",
       "Incorporación de rutinas de descanso, concentración y foco",
-      "Estrategias para sostener la disciplina sin caer en el desgaste mental"
+      "Estrategias para sostener la disciplina sin caer en el desgaste mental",
     ],
-    iconName: "Flame"
+    iconName: "Flame",
   },
   {
     number: "03",
     title: "Reconocé tu Valor y Mejorá tus Vínculos",
     subtitle: "Confianza, comunicación y entorno",
-    description: "Aprendé a mirarte con mayor confianza y reconocimiento, valorando tu recorrido y capacidades. Trabajá en el establecimiento de límites y construí vínculos conscientes.",
+    description:
+      "Aprendé a mirarte con mayor confianza y reconocimiento, valorando tu recorrido y capacidades. Trabajá en el establecimiento de límites y construí vínculos conscientes.",
     details: [
       "Fortalecimiento de la autoimagen y seguridad competitiva",
       "Comunicación asertiva con entrenadores, compañeros y cuerpo técnico",
-      "Gestión de relaciones y entorno del deportista de élite"
+      "Gestión de relaciones y entorno del deportista de élite",
     ],
-    iconName: "Users"
+    iconName: "Users",
   },
   {
     number: "04",
     title: "Ejercicios Semanales & Enfoque Competitivo",
     subtitle: "Llevar la versión mejorada a la cancha",
-    description: "Realizamos ejercicios y tareas prácticas durante la semana para que la persona detrás del deportista evolucione día a día y traslade esa fortaleza a la competencia.",
+    description:
+      "Realizamos ejercicios y tareas prácticas durante la semana para que la persona detrás del deportista evolucione día a día y traslade esa fortaleza a la competencia.",
     details: [
       "Técnicas de reprogramación y respiración bajo presión",
       "Seguimiento continuo pre y post partidos / torneos",
-      "Evaluación y ajuste constante del plan estratégico"
+      "Evaluación y ajuste constante del plan estratégico",
     ],
-    iconName: "Activity"
-  }
+    iconName: "Activity",
+  },
 ];
 
 export const CERTIFICATIONS_DATA: Certification[] = [
@@ -114,7 +156,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "International Coach Federation (ICF)",
     category: "icf_aacop",
     badgeLabel: "Certificación Internacional",
-    description: "Formación de máximo estándar global en procesos de acompañamiento ontológico y transformación personal."
+    description:
+      "Formación de máximo estándar global en procesos de acompañamiento ontológico y transformación personal.",
   },
   {
     id: "aacop",
@@ -122,7 +165,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Activación X — Avalado por AACOP",
     category: "icf_aacop",
     badgeLabel: "Aval Nacional",
-    description: "Especialización en dinámica deportiva, liderazgo en equipos y rendimiento atlético de alto nivel."
+    description:
+      "Especialización en dinámica deportiva, liderazgo en equipos y rendimiento atlético de alto nivel.",
   },
   {
     id: "ciemec-1",
@@ -130,7 +174,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "CIEMEC",
     category: "neuroscience",
     badgeLabel: "Gestión Emocional",
-    description: "Abordaje especializado en la regulación de la frustración, el miedo al fallo y la euforia en competencia."
+    description:
+      "Abordaje especializado en la regulación de la frustración, el miedo al fallo y la euforia en competencia.",
   },
   {
     id: "ciemec-2",
@@ -138,7 +183,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "CIEMEC",
     category: "neuroscience",
     badgeLabel: "Foco & Concentración",
-    description: "Desarrollo del estado de 'Flow' y técnicas de atención focalizada en momentos de máxima exigencia."
+    description:
+      "Desarrollo del estado de 'Flow' y técnicas de atención focalizada en momentos de máxima exigencia.",
   },
   {
     id: "ciemec-3",
@@ -146,7 +192,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "CIEMEC",
     category: "neuroscience",
     badgeLabel: "Neurociencia",
-    description: "Comprensión del funcionamiento cerebral y circuitos de aprendizaje motor y toma de decisiones rápida."
+    description:
+      "Comprensión del funcionamiento cerebral y circuitos de aprendizaje motor y toma de decisiones rápida.",
   },
   {
     id: "neuro-crecimiento",
@@ -154,7 +201,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Especialización Avanzada",
     category: "neuroscience",
     badgeLabel: "Desarrollo Humano",
-    description: "Capacidades intrapersonales e interpersonales para la resiliencia y el bienestar integral."
+    description:
+      "Capacidades intrapersonales e interpersonales para la resiliencia y el bienestar integral.",
   },
   {
     id: "quimica-cerebro",
@@ -163,7 +211,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     category: "neuroscience",
     year: "2023",
     badgeLabel: "Neuroquímica",
-    description: "Neurotransmisores (dopamina, cortisol, adrenalina) aplicados al manejo del estrés y la motivación."
+    description:
+      "Neurotransmisores (dopamina, cortisol, adrenalina) aplicados al manejo del estrés y la motivación.",
   },
   {
     id: "barca-1",
@@ -171,7 +220,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Universidad de Barcelona — Barça Innovation Hub",
     category: "barca",
     badgeLabel: "Barça Hub",
-    description: "Estudio de las variables determinantes en el rendimiento atlético de clase mundial."
+    description:
+      "Estudio de las variables determinantes en el rendimiento atlético de clase mundial.",
   },
   {
     id: "barca-2",
@@ -179,7 +229,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Universidad de Barcelona — Barça Innovation Hub",
     category: "barca",
     badgeLabel: "Barça Hub",
-    description: "Estrategias de intervención aplicadas al deportista en fases de entrenamiento y competencia."
+    description:
+      "Estrategias de intervención aplicadas al deportista en fases de entrenamiento y competencia.",
   },
   {
     id: "barca-3",
@@ -187,7 +238,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Universidad de Barcelona — Barça Innovation Hub",
     category: "barca",
     badgeLabel: "Barça Hub",
-    description: "Comprensión integral de las presiones mediáticas, contractuales y familiares en el alto rendimiento."
+    description:
+      "Comprensión integral de las presiones mediáticas, contractuales y familiares en el alto rendimiento.",
   },
   {
     id: "barca-4",
@@ -195,7 +247,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Universidad de Barcelona — Barça Innovation Hub",
     category: "barca",
     badgeLabel: "Barça Hub",
-    description: "Análisis biopsicosocial de las demandas y desafíos que atraviesan los atletas profesionales."
+    description:
+      "Análisis biopsicosocial de las demandas y desafíos que atraviesan los atletas profesionales.",
   },
   {
     id: "reprogramacion",
@@ -203,7 +256,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Entrenamiento Especializado",
     category: "cognitive",
     badgeLabel: "Mente Fuerte",
-    description: "Eliminación de diálogo interno destructivo y reestructuración de esquemas mentales automáticos."
+    description:
+      "Eliminación de diálogo interno destructivo y reestructuración de esquemas mentales automáticos.",
   },
   {
     id: "tcc",
@@ -211,7 +265,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "Formación Clínica Aplicada",
     category: "cognitive",
     badgeLabel: "TCC",
-    description: "Herramientas basadas en evidencia para la modificación de hábitos y patrones de conducta limitantes."
+    description:
+      "Herramientas basadas en evidencia para la modificación de hábitos y patrones de conducta limitantes.",
   },
   {
     id: "ansiedad-itcc",
@@ -219,8 +274,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     institution: "ITCC (Instituto de Terapia Cognitivo Conductual)",
     category: "cognitive",
     badgeLabel: "ITCC Certificado",
-    description: "Estrategias específicas para superar bloqueos de pánico, ansiedad de ejecución y estrés agudo."
-  }
+    description:
+      "Estrategias específicas para superar bloqueos de pánico, ansiedad de ejecución y estrés agudo.",
+  },
 ];
 
 export const TESTIMONIALS_DATA: Testimonial[] = [
@@ -232,12 +288,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Tomas_Cuello.jpeg",
     isFeatured: true,
     highlight: "Brasileirão & Copa Libertadores",
-    quote: "El acompañamiento mental y emocional con Nico me dio una claridad enorme para afrontar la exigencia y la presión en la alta competencia. Trabajar la mentalidad y la tranquilidad personal marca una diferencia real en la cancha.",
-    stats: [
-      { label: "Club", value: "Atlético Mineiro (Brasil)" },
-      { label: "Enfoque", value: "Gestión de Presión & Autoconfianza" },
-      { label: "Impacto", value: "Solidez y Enfoque Competitivo" }
-    ]
   },
   {
     id: "agustin-ladstatter",
@@ -247,12 +297,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Agustin_Ladstatter.jpeg",
     isFeatured: true,
     highlight: "Primera División • Liga Profesional",
-    quote: "Aprender a gestionar los momentos difíciles, la ansiedad previa a los partidos y sostener el foco en mi juego cambió mi confianza y mi solidez dentro del campo.",
-    stats: [
-      { label: "Club", value: "San Lorenzo (Argentina)" },
-      { label: "Enfoque", value: "Manejo de Ansiedad & Seguridad" },
-      { label: "Impacto", value: "Crecimiento y Madurez Deportiva" }
-    ]
   },
   {
     id: "benjamin-sagues-barreiro",
@@ -262,12 +306,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Benjamin_Sagues_Barreiro.jpeg",
     isFeatured: true,
     highlight: "Primera División • Alta Competencia",
-    quote: "El trabajo integral en la persona detrás del jugador es lo que te permite sostener el nivel semana tras semana y no dejarte condicionar por las presiones externas.",
-    stats: [
-      { label: "Club", value: "Estudiantes LP (Argentina)" },
-      { label: "Enfoque", value: "Resiliencia & Constancia" },
-      { label: "Impacto", value: "Regularidad en Alto Nivel" }
-    ]
   },
   {
     id: "eber-ocampo",
@@ -277,12 +315,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Eber_Ocampo.jpeg",
     isFeatured: true,
     highlight: "Primera División • Liga Profesional",
-    quote: "Con Nico encontré herramientas para superar bloqueos, mejorar la concentración en los momentos duros de los partidos y disfrutar mucho más del camino competitivo.",
-    stats: [
-      { label: "Club", value: "San Lorenzo (Argentina)" },
-      { label: "Enfoque", value: "Concentración Bajo Presión" },
-      { label: "Impacto", value: "Mayor Claridad y Efectividad" }
-    ]
   },
   {
     id: "felipe-tempone",
@@ -292,12 +324,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Felipe_Tempone.jpeg",
     isFeatured: true,
     highlight: "Primera División • Proyección",
-    quote: "Las sesiones me ayudaron a ordenar mi cabeza, fijar objetivos claros para la temporada y mantener la disciplina y motivación al 100% día a día.",
-    stats: [
-      { label: "Club", value: "Independiente (Argentina)" },
-      { label: "Enfoque", value: "Hábitos Saludables & Disciplina" },
-      { label: "Impacto", value: "Evolución Deportiva Constante" }
-    ]
   },
   {
     id: "francisco-scarpeccio",
@@ -307,12 +333,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Francisco_Scarpeccio.jpeg",
     isFeatured: true,
     highlight: "Primera División • Liga Profesional",
-    quote: "Entendí cómo transformar la presión y los nervios en energía positiva para rendir mejor en cada partido y tener mayor seguridad con la pelota.",
-    stats: [
-      { label: "Club", value: "Newell's Old Boys (Argentina)" },
-      { label: "Enfoque", value: "Autorregulación Emocional" },
-      { label: "Impacto", value: "Seguridad y Determinación" }
-    ]
   },
   {
     id: "juan-villordo",
@@ -322,12 +342,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Juan_Villordo.jpeg",
     isFeatured: true,
     highlight: "Primera División • Máxima Exigencia",
-    quote: "El acompañamiento de Nico fue clave para fortalecer mi seguridad mental en momentos decisivos de la temporada y asumir el protagonismo con confianza.",
-    stats: [
-      { label: "Club", value: "River Plate (Argentina)" },
-      { label: "Enfoque", value: "Seguridad & Carácter" },
-      { label: "Impacto", value: "Liderazgo en el Campo" }
-    ]
   },
   {
     id: "lucas-ibarra",
@@ -337,12 +351,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Lucas_Ibarra.jpeg",
     isFeatured: true,
     highlight: "Primera División • Fútbol Uruguayo",
-    quote: "La claridad en la toma de decisiones y el manejo de los momentos de tensión dentro del campo mejoraron notablemente desde que arrancamos a trabajar.",
-    stats: [
-      { label: "Club", value: "Peñarol (Uruguay)" },
-      { label: "Enfoque", value: "Toma de Decisiones Rápida" },
-      { label: "Impacto", value: "Claridad en Momentos Clave" }
-    ]
   },
   {
     id: "tyago-ayala",
@@ -352,12 +360,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Tyago_Ayala.jpeg",
     isFeatured: true,
     highlight: "Primera División • Liga Profesional",
-    quote: "Descubrí cómo potenciar mi juego desde el autoconocimiento, la gestión de mis emociones y la confianza en todo lo que vengo trabajando.",
-    stats: [
-      { label: "Club", value: "Sarmiento (Argentina)" },
-      { label: "Enfoque", value: "Autoconfianza & Crecimiento" },
-      { label: "Impacto", value: "Desarrollo Deportivo Integral" }
-    ]
   },
   {
     id: "ignacio-cuello",
@@ -367,12 +369,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Ignacio_Cuello.jpeg",
     isFeatured: true,
     highlight: "Competencia Profesional • Alto Rendimiento",
-    quote: "El coaching me dio una mirada distinta sobre mis propias capacidades y la importancia del descanso, los pensamientos y los hábitos en el rendimiento del fin de semana.",
-    stats: [
-      { label: "Club", value: "Central Norte (Argentina)" },
-      { label: "Enfoque", value: "Autoconocimiento & Rutinas" },
-      { label: "Impacto", value: "Óptima Preparación Integral" }
-    ]
   },
   {
     id: "rodrigo-dudok",
@@ -382,12 +378,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Rodrigo_Dudok.jpeg",
     isFeatured: true,
     highlight: "Primeira Liga • Portugal",
-    quote: "El respaldo y las herramientas que me brindó Nico marcaron un antes y un después en mi enfoque como deportista profesional en el fútbol europeo.",
-    stats: [
-      { label: "Club", value: "Estrela Amadora (Portugal)" },
-      { label: "Enfoque", value: "Mentalidad Profesional" },
-      { label: "Impacto", value: "Salto de Calidad Europeo" }
-    ]
   },
   {
     id: "kevin-londono",
@@ -397,12 +387,6 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Kevin_Londono.jpeg",
     isFeatured: true,
     highlight: "Fútbol Profesional • Colombia",
-    quote: "Trabajar la mente y las emociones con Nico me permitió competir con mayor solidez y tranquilidad en cada desafío del fútbol profesional.",
-    stats: [
-      { label: "Club", value: "Cúcuta Deportivo (Colombia)" },
-      { label: "Enfoque", value: "Adaptabilidad & Rendimiento" },
-      { label: "Impacto", value: "Consistencia en Alta Exigencia" }
-    ]
   },
   {
     id: "lautaro-bursich",
@@ -412,13 +396,43 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     image: "/images/Lautaro_Bursich.jpeg",
     isFeatured: true,
     highlight: "Fútbol Profesional • Plantel Superior",
-    quote: "Un espacio fundamental para reflexionar, aprender a convivir con el error sin frustrarse y potenciar las fortalezas individuales en cada entrenamiento y partido.",
-    stats: [
-      { label: "Club", value: "Talleres RE (Argentina)" },
-      { label: "Enfoque", value: "Tolerancia a la Frustración" },
-      { label: "Impacto", value: "Mayor Fortaleza Mental" }
-    ]
-  }
+  },
+  {
+    id: "estanislao-lopez",
+    name: "Estanislao López",
+    sport: "Fútbol Profesional",
+    teamOrRole: "Colón de Santa Fe • Argentina",
+    image: "/images/Estanislao_Lopez.jpeg",
+    isFeatured: true,
+    highlight: "Fútbol Profesional • Argentina",
+  },
+  {
+    id: "fede-postel",
+    name: "Fede Postel",
+    sport: "Fútbol Profesional",
+    teamOrRole: "UAI Urquiza • Argentina",
+    image: "/images/Fede_Postel.jpeg",
+    isFeatured: true,
+    highlight: "Fútbol Profesional • Argentina",
+  },
+  {
+    id: "mateo-ureta",
+    name: "Mateo Ureta",
+    sport: "Fútbol Profesional",
+    teamOrRole: "Peñarol • Uruguay",
+    image: "/images/Mateo_Ureta.jpeg",
+    isFeatured: true,
+    highlight: "Primera División • Fútbol Uruguayo",
+  },
+  {
+    id: "simon-perez",
+    name: "Simón Pérez",
+    sport: "Fútbol Profesional",
+    teamOrRole: "Nueva Chicago • Argentina",
+    image: "/images/Simon_Perez.jpeg",
+    isFeatured: true,
+    highlight: "Fútbol Profesional • Argentina",
+  },
 ];
 
 export const FAQ_DATA: FAQItem[] = [
@@ -433,7 +447,7 @@ A través de conversaciones, preguntas y herramientas específicas, el coaching 
 
 En el ámbito deportivo, este proceso puede ayudar al deportista a desarrollar una mayor consciencia sobre sí mismo, gestionar sus emociones, fortalecer su confianza, afrontar dificultades y construir nuevas formas de relacionarse con el entrenamiento, la competencia y los resultados.
 
-El objetivo no es decirle al deportista qué tiene que hacer, sino acompañarlo a descubrir nuevas posibilidades para que pueda elegir y actuar de una manera más consciente y efectiva.`
+El objetivo no es decirle al deportista qué tiene que hacer, sino acompañarlo a descubrir nuevas posibilidades para que pueda elegir y actuar de una manera más consciente y efectiva.`,
   },
   {
     id: "para-que-son-las-sesiones",
@@ -446,18 +460,18 @@ El objetivo es que el deportista pueda desarrollar una mayor consciencia sobre s
 
 Porque muchas veces no se trata de hacer más, sino de aprender a observar de otra manera para poder actuar de una manera diferente.
 
-Las sesiones no buscan cambiar quién es el deportista, sino acompañarlo a descubrir y potenciar los recursos que ya existen en él. Porque cuando trabajamos con la persona, también estamos fortaleciendo al deportista.`
+Las sesiones no buscan cambiar quién es el deportista, sino acompañarlo a descubrir y potenciar los recursos que ya existen en él. Porque cuando trabajamos con la persona, también estamos fortaleciendo al deportista.`,
   },
   {
     id: "como-es-la-modalidad",
     question: "¿Cómo es la modalidad de las sesiones (Online o Presencial)?",
     answer: `Trabajo con sesiones tanto en modalidad Online (a través de videollamadas para deportistas de cualquier provincia o país del mundo) como Presenciales. 
 
-La duración promedio de cada encuentro es de 50 a 60 minutos con una frecuencia semanal o quincenal según la etapa de la temporada y las necesidades específicas del atleta. Además, contamos con contacto y tareas prácticas entre semana para acompañar tu calendario de entrenamientos y partidos.`
+La duración promedio de cada encuentro es de 50 a 60 minutos con una frecuencia semanal o quincenal según la etapa de la temporada y las necesidades específicas del atleta. Además, contamos con contacto y tareas prácticas entre semana para acompañar tu calendario de entrenamientos y partidos.`,
   },
   {
     id: "a-quien-esta-dirigido",
     question: "¿A qué disciplinas o niveles deportivos está dirigido?",
-    answer: `Está orientado a deportistas de todas las disciplinas (fútbol, tenis, básquet, hockey, atletismo, rugby, artes marciales, deportes de motor, etc.) tanto a nivel profesional, de alto rendimiento, etapas formativas/juveniles con proyección competitiva y deportistas amateur que buscan superarse de forma integral.`
-  }
+    answer: `Está orientado a deportistas de todas las disciplinas (fútbol, tenis, básquet, hockey, atletismo, rugby, artes marciales, deportes de motor, etc.) tanto a nivel profesional, de alto rendimiento, etapas formativas/juveniles con proyección competitiva y deportistas amateur que buscan superarse de forma integral.`,
+  },
 ];

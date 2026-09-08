@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { MessageCircle, X } from 'lucide-react';
-import { COACH_INFO } from '../data/coachingData';
+import type React from "react";
+import { useState } from "react";
+import { MessageCircle, X } from "lucide-react";
+import { whatsappLink } from "../data/coachingData";
 
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
@@ -18,14 +19,21 @@ export const FloatingWhatsApp: React.FC = () => {
           </button>
           <div className="flex items-center gap-2 mb-1">
             <span className="w-2 h-2 rounded-full bg-brand-yellow animate-ping" />
-            <span className="font-bold text-brand-yellow uppercase tracking-wider text-[11px]">Nico Actis</span>
+            <span className="font-bold text-brand-yellow uppercase tracking-wider text-[11px]">
+              Nico Actis
+            </span>
           </div>
-          <p>¡Hola! ¿Querés potenciar tu mentalidad y rendimiento? Escribime directamente.</p>
+          <p>
+            ¡Hola! ¿Querés potenciar tu mentalidad y rendimiento? Escribime
+            directamente.
+          </p>
         </div>
       )}
 
       <a
-        href={`https://wa.me/${COACH_INFO.whatsappNumber}?text=${encodeURIComponent('Hola Nico, quiero consultar por las sesiones de coaching deportivo.')}`}
+        href={whatsappLink(
+          "Hola Nico, quiero consultar por las sesiones de coaching deportivo.",
+        )}
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-yellow text-black flex items-center justify-center shadow-neon hover:shadow-neon-strong hover:scale-110 active:scale-95 transition-all duration-200 group"
